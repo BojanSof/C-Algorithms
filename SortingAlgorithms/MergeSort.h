@@ -3,12 +3,12 @@
 
 #include "utility.h"
 
-void merge(void *arr, unsigned int l, unsigned int m, unsigned int r, size_t size, int (*comp)(void *a, void *b))
+void merge(void *arr, int l, int m, int r, size_t size, int (*comp)(void *a, void *b))
 {
-    unsigned int i, j, k;
+    int i, j, k;
     void *leftArr, *rightArr;
-    unsigned int n1 = m - l + 1;
-    unsigned int n2 = r - m;
+    int n1 = m - l + 1;
+    int n2 = r - m;
     leftArr = (void*)malloc(size * n1);
     rightArr = (void*)malloc(size * n2);
     for(i = 0; i < n1; i++)
@@ -49,56 +49,14 @@ void merge(void *arr, unsigned int l, unsigned int m, unsigned int r, size_t siz
         j++;
         k++;
     }
-    /*
-    for(i = 0; i < n1; i++)
-    {
-        memcpy((leftArr + (i*size)), (arr + ((l + i)*size)), size);
-        j++;
-    }
-    for(i = 0; i < n2; i++)
-    {
-        memcpy((rightArr + (i*size)), (arr + ((m + 1 + i)*size)), size);
-        j++;
-    }
-    
-    i = j = 0;
-    k = l;
-    
-    while(i < n1 && j < n2)
-    {
-        if(comp((leftArr + (i*size)), (rightArr + (j*size))))
-        {
-            memcpy((arr + (k*size)), (leftArr + (i*size)), size);
-            i++;
-        }
-        else
-        {
-            memcpy((arr + (k*size)), (rightArr + (j*size)), size);
-            j++;
-        }
-        k++;
-    }
-    while(i < n1)
-    {
-        memcpy((arr + (k*size)), (leftArr + (i*size)), size);
-        i++;
-        k++;
-    }
-    while(j < n2)
-    {
-        memcpy((arr + (k*size)), (rightArr + (j*size)), size);
-        j++;
-        k++;
-    }
-    */
     free(leftArr);
     free(rightArr);
 }
-void mergeSort(void *arr, unsigned int l, unsigned int r, size_t size, int (*comp)(void *a, void *b))
+void mergeSort(void *arr, int l, int r, size_t size, int (*comp)(void *a, void *b))
 {
     if(l < r)
     {
-        unsigned int m = l + (r-l)/2;
+        int m = l + (r-l)/2;
         mergeSort(arr, l, m, size, comp);
         mergeSort(arr, m + 1, r, size, comp);
         merge(arr, l, m, r, size, comp);
