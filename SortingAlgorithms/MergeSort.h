@@ -1,7 +1,7 @@
 #ifndef MERGESORT_H
 #define MERGESORT_H
 
-#include "utility.h"
+#include "../Utilities/utility.h"
 
 void merge(void *arr, int l, int m, int r, size_t size, int (*comp)(void *a, void *b))
 {
@@ -13,12 +13,12 @@ void merge(void *arr, int l, int m, int r, size_t size, int (*comp)(void *a, voi
     rightArr = (void*)malloc(size * n2);
     for(i = 0; i < n1; i++)
     {
-        memcpy(element_address(leftArr, size, i), element_address(arr, size, l + i), size);
+        memmove(element_address(leftArr, size, i), element_address(arr, size, l + i), size);
         j++;
     }
     for(i = 0; i < n2; i++)
     {
-        memcpy(element_address(rightArr, size, i), element_address(arr, size, m + 1 + i), size);
+        memmove(element_address(rightArr, size, i), element_address(arr, size, m + 1 + i), size);
         j++;
     }
             i = j = 0;
@@ -27,25 +27,25 @@ void merge(void *arr, int l, int m, int r, size_t size, int (*comp)(void *a, voi
     {
         if(comp(element_address(leftArr, size, i), element_address(rightArr, size, j)))
         {
-            memcpy(element_address(arr, size, k), element_address(leftArr, size, i), size);
+            memmove(element_address(arr, size, k), element_address(leftArr, size, i), size);
             i++;
         }
         else
         {
-            memcpy(element_address(arr, size, k), element_address(rightArr, size, j), size);
+            memmove(element_address(arr, size, k), element_address(rightArr, size, j), size);
             j++;
         }
         k++;
     }
     while(i < n1)
     {
-        memcpy(element_address(arr, size, k), element_address(leftArr, size, i), size);
+        memmove(element_address(arr, size, k), element_address(leftArr, size, i), size);
         i++;
         k++;
     }
     while(j < n2)
     {
-        memcpy(element_address(arr, size, k), element_address(rightArr, size, j), size);
+        memmove(element_address(arr, size, k), element_address(rightArr, size, j), size);
         j++;
         k++;
     }

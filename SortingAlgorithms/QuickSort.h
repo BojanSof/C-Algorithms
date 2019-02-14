@@ -1,7 +1,7 @@
 #ifndef QUICKSORT_H
 #define QUICKSORT_H
 
-#include "utility.h"
+#include "../Utilities/utility.h"
 
 int partition(void *arr, int l, int r, size_t size, int (*comp)(void* a, void *b))
 {
