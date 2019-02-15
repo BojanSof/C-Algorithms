@@ -3,21 +3,21 @@
 
 #include "../Utilities/utility.h"
 
-int binarySearch(void *arr, int n, void *e, size_t size, int (*comp)(void *a, void *b))
+int binarySearchRange(void *arr, int l, int r, void *e, size_t size, int (*comp)(void *a, void *b))
 {
-    int left = 0, right = n - 1, mid;
+    int mid;
     int index = -1;
     int found = 0;
-    while(!found && left <= right)
+    while(!found && l <= r)
     {
-        mid = left + (right-left)/2;
+        mid = l + (r-l)/2;
         if(comp(e, element_address(arr, size, mid)) < 0)
         {
-            right = mid - 1;
+            r = mid - 1;
         }
         else if(comp(e, element_address(arr, size, mid)) > 0)
         {
-            left = mid + 1;
+            l = mid + 1;
         }
         else
         {
@@ -27,5 +27,11 @@ int binarySearch(void *arr, int n, void *e, size_t size, int (*comp)(void *a, vo
     }
     return index;
 }
+
+int binarySearch(void *arr, int n, void *e, size_t size, int (*comp)(void *a, void *b))
+{
+    return binarySearchRange(arr, 0, n-1, e, size, comp);
+}
+
 
 #endif //BINARYSEARCH_H

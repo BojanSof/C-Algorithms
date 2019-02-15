@@ -1,6 +1,7 @@
 #ifndef UTILITY_H
 #define UTILITY_H
 
+#include <math.h>
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
@@ -16,6 +17,16 @@ void swap(void *a, void *b, size_t size)
     memmove(t, a, size);
     memmove(a, b, size);
     memmove(b, t, size);
+}
+
+int min(int a, int b)
+{
+    return (a < b) ? a : b;
+}
+
+int max(int a, int b)
+{
+    return (a > b) ? a : b;
 }
 
 int randNum(int a, int b)

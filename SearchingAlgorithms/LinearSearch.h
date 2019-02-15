@@ -2,6 +2,7 @@
 #define LINEARSEARCH_H
 
 #include "../Utilities/utility.h"
+
 int linearSearch(void *arr, int n, void *e, size_t size, int (*comp)(void *a, void *b))
 {
     int index = -1;
