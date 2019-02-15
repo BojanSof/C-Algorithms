@@ -2,6 +2,8 @@
 
 ## Searching Algorithms
 - Binary search
+- Exponential search
+- Jump search
 - Linear(Sequential) search
 
 ## Sorting Algorithms
