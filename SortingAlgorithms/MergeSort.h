@@ -14,14 +14,13 @@ void merge(void *arr, int l, int m, int r, size_t size, int (*comp)(void *a, voi
     for(i = 0; i < n1; i++)
     {
         memcpy(element_address(leftArr, size, i), element_address(arr, size, l + i), size);
-        j++;
     }
     for(i = 0; i < n2; i++)
     {
         memcpy(element_address(rightArr, size, i), element_address(arr, size, m + 1 + i), size);
-        j++;
     }
-            i = j = 0;
+    
+    i = j = 0;
     k = l;
     while(i < n1 && j < n2)
     {
