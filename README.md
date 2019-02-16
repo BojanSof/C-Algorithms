@@ -13,3 +13,6 @@
 - Merge sort
 - Selection sort
 - Quick sort
+
+## Permutation Algorithms
+- Heap's algorithm
