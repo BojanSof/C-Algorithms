@@ -21,11 +21,4 @@ void heapPermutation(void *arr, int n, int arrSize, size_t size,
    heapPermutation(arr, n - 1, arrSize, size, print);
 }
 
-
-/*
-{1, 2, 3}
-
-
-*/
-
 #endif //HEAPPERMUTATION_H
