@@ -3,6 +3,7 @@
 ## Searching Algorithms
 - Binary search
 - Exponential search
+- Interpolation search
 - Jump search
 - Linear(Sequential) search
 
