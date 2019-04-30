@@ -5,6 +5,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 
 void* element_address(void *arr, size_t size, unsigned int index)
 {
